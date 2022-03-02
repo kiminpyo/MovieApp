@@ -1,38 +1,43 @@
-import React ,{useEffect} from 'react'
-import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
-import auth from '../../../hoc/auth'
-function LandingPage() {
-  let navigate = useNavigate(); 
-  useEffect(() => {
 
-    axios.get('/api/hello')
-    .then(response => console.log(response))
-    }, [])
+import react, {useEffect, useState} from 'react';
+import {API_URL, API_KEY } from '../../../Config'
+function LandingPage(){
+
+  useEffect(() => {
+      //array[]
   
-    const onClickHandler = () =>{
-      axios.get('/api/users/logout')
-      .then(response =>{
-        console.log(response.data)
-        if(response.data.success){
-          navigate("/login")
-        }
-        else{
-          alert('로그아웃 실패')
-        }
-      })
-    }
-  return (
-    <div style={{display: 'flex', justifyContent: 'center', alignItems:'center'
-  ,width: '100%', height: '100vh'}}>
+    const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+
+    fetch(endpoint)
+    .then(response => response.json())
+     .then(response => {
+       console.log(response)
+     })
+  }, []) 
+  
+    //state에 넣는다
+  /*   .then(response => {
+
+      setMovies([response.results])
+    })
+
+  },[]) */
+
+  return(
     
-    <h2>시작페이지</h2>
-    <button
-    onClick= {onClickHandler}>
-      로그아웃
-    </button>
+  <div style={{width: '100%', margin: '0'}}>
+
+    <div style={{width: '85%', margin: '1rem auto'}}>
+     <h2>movies by latest</h2>
+     <hr />
+
+    </div>
+    <div style={{display:'flex', justifyContent:'center'}}>
+      <button>Load more</button>
+    </div>
+
    </div>
   )
 }
 
-export default auth(LandingPage, null);
+export default LandingPage;
