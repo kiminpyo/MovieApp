@@ -7,7 +7,7 @@ import {
   import LandingPage from './components/views/LandingPage/LandingPage'
   import LoginPage from './components/views/LoginPage/LoginPage'
   import RegisterPage from './components/views/RegisterPage/RegisterPage'
-  import MovieDetail from './components/views/MovieDetail/MovieDetaill'
+  import MovieDetail from './components/views/MovieDetail/MovieDetail'
 
   function App() {
   
