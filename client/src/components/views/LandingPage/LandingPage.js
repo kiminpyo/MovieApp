@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {API_URL, API_KEY, IMAGE_BASE_URL } from '../../../Config';
 import MainImage from './Sections/MainImage';
-import Gridcards from '../commons/GridCards';
+import GridCards from '../commons/GridCards';
 import {Row} from 'antd';
 
-function LandingPage(props){
+function LandingPage(){
 
   const [Movies, setMovies] = useState([]) 
   const [MainMovieImage, setMainMovieImage] = useState(null);
@@ -14,7 +14,7 @@ function LandingPage(props){
     const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
       //array[]
       fetchMovies(endpoint)
-    }, []) 
+    },[]) 
 
       const fetchMovies = (endpoint) =>{
         fetch(endpoint)
@@ -53,7 +53,8 @@ function LandingPage(props){
         {Movies && Movies.map((movie, index)=>(
 
           <React.Fragment key={index}>
-                  <Gridcards
+                  <GridCards
+                  landingPage
                   image={movie.poster_path ?
                     `${IMAGE_BASE_URL}w500${movie.poster_path}`: null}
                   movieId={movie.id}
