@@ -22,7 +22,7 @@ function GridCards(props) {
           
     )
     } else  {
-      console.log("hi error")
+      
       return(
           <Col lg={6} md={8} xs={24} >
                <div style={{ position: 'relative' }}>             
