@@ -1,3 +1,4 @@
+
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {Button}  from 'antd'
@@ -43,10 +44,12 @@ function Favorite(props) {
                 console.log('favorited', response.data)
             } else{
                 alert('정보를 가져오는데 실패했습니다.')
+
             }
         })
 
     }, [])
+
 
      const onClickFavorite = () => {
         if(Favorited){
@@ -79,6 +82,7 @@ function Favorite(props) {
 
      <Button onClick={onClickFavorite}>{Favorited ? "Not Favorite" : "Add to Favorite"}{FavoriteNumber} </Button>
        </div>
+
 
  
     
