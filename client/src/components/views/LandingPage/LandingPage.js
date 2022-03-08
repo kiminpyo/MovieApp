@@ -2,8 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {API_URL, API_KEY, IMAGE_BASE_URL } from '../../../Config';
 import MainImage from './Sections/MainImage';
 import GridCards from '../commons/GridCards';
-import auth from '../../../hoc/auth'
-import {Row} from 'antd';
+
+import {Row, Menu} from 'antd';
+
+
 
 function LandingPage(){
 
@@ -37,6 +39,12 @@ function LandingPage(){
   return(
     
   <div style={{width: '100%', margin: '0'}}>
+      <Menu>
+      <Menu.Item key="favorite">
+
+  <a href="/favorite">favorite</a>
+  </Menu.Item>
+      </Menu>
 
     {/* Main Image */}
     {MainMovieImage && 

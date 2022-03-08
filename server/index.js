@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 
+app.use('/api/favorite', require('./routes/favorite'));
 
 //mongodb 연결
 const mongoose = require('mongoose');

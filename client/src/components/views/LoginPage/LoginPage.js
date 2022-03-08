@@ -33,8 +33,9 @@ function LoginPage() {
     dispatch(loginUser(body))
     .then(response => {
       if(response.payload.loginSuccess){
-        
-        navigate('/')
+
+        window.localStorage.setItem('userId', response.payload.userId)
+
       }
       else {
         alert('error')}
